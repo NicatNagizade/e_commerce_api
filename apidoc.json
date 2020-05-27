@@ -1,0 +1,10 @@
+{
+    "name": "T-shirt",
+    "version": "1.0.0",
+    "description": "---",
+    "title": "~~~",
+    "url" : "http://localhost:8000/api",
+    "order": [
+        "Auth"
+    ]
+}

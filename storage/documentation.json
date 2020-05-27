@@ -1,0 +1,5931 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "T-shirt",
+    "version": "1.0",
+    "description": "T-shirt",
+    "contact": {
+      "email": "nicatnagizade53@gmail.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8000/api",
+      "description": "Localhost"
+    },
+    {
+      "url": "https://tshirtapi.grinduck.com/api",
+      "description": "Test"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "API Key": {
+        "name": "Authorization",
+        "type": "apiKey",
+        "in": "header",
+        "description": "Description: Bearer {{token}}"
+      }
+    },
+    "schemas": {}
+  },
+  "tags": [
+    {
+      "name": "Auth"
+    },
+    {
+      "name": "Admin"
+    },
+    {
+      "name": "Product"
+    },
+    {
+      "name": "Dev"
+    },
+    {
+      "name": "Msk - Category"
+    },
+    {
+      "name": "Msk - Type of delivery"
+    },
+    {
+      "name": "Msk - Color"
+    },
+    {
+      "name": "Msk - Design"
+    },
+    {
+      "name": "Msk - Currency"
+    },
+    {
+      "name": "Msk - User Notification"
+    },
+    {
+      "name": "Msk - Tag"
+    },
+    {
+      "name": "Msk - Size"
+    },
+    {
+      "name": "Msk - Region"
+    },
+    {
+      "name": "Msk - Sub Product Type"
+    },
+    {
+      "name": "Msk - Product Type"
+    },
+    {
+      "name": "Msk - Metro"
+    },
+    {
+      "name": "Msk - Manufacturer"
+    },
+    {
+      "name": "Msk - Coupon"
+    },
+    {
+      "name": "Msk - Country"
+    },
+    {
+      "name": "Msk - Availability Of Product"
+    },
+    {
+      "name": "Msk - Sub Category"
+    }
+  ],
+  "paths": {
+    "/product": {
+      "get": {
+        "summary": "get products",
+        "tags": [
+          "Product"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "current_page": 1,
+                        "data": [
+                          {
+                            "id": 1,
+                            "name": "name ru",
+                            "price": "250.00",
+                            "image": "http://localhost:8000/images/product/images/1589644772WWRv5fI88nGxDRbF9Mg4.jpg",
+                            "gender": "male",
+                            "child": 0,
+                            "description": "description_ru",
+                            "content": "content ru",
+                            "manufacturer_id": 1,
+                            "sub_category_id": 1,
+                            "sub_product_type_id": 1,
+                            "created_at": "2020-05-16T15:59:32.000000Z",
+                            "updated_at": "2020-05-16T15:59:32.000000Z",
+                            "images": [
+                              {
+                                "id": 1,
+                                "product_id": 1,
+                                "image": "http://localhost:8000/images/product/sub_images/1589644772cK9n6lvYj5BvkZLqo7Ke.jpg"
+                              },
+                              {
+                                "id": 2,
+                                "product_id": 1,
+                                "image": "http://localhost:8000/images/product/sub_images/1589644772NNjyRLUV4RC11zhaxjNF.jpg"
+                              }
+                            ],
+                            "sizes": [
+                              {
+                                "id": 1,
+                                "name": "X",
+                                "pivot": {
+                                  "product_id": 1,
+                                  "size_id": 1
+                                }
+                              },
+                              {
+                                "id": 2,
+                                "name": "XL",
+                                "pivot": {
+                                  "product_id": 1,
+                                  "size_id": 2
+                                }
+                              }
+                            ],
+                            "colors": [
+                              {
+                                "id": 1,
+                                "name": null,
+                                "pivot": {
+                                  "product_id": 1,
+                                  "color_id": 1
+                                }
+                              },
+                              {
+                                "id": 2,
+                                "name": null,
+                                "pivot": {
+                                  "product_id": 1,
+                                  "color_id": 2
+                                }
+                              }
+                            ],
+                            "discount": {
+                              "id": 1,
+                              "product_id": 1,
+                              "price": "200.00",
+                              "start": "2020-10-09 10:10:00",
+                              "end": "2020-11-10 10:10:00"
+                            }
+                          }
+                        ],
+                        "first_page_url": "http://localhost:8000/api/product?page=1",
+                        "from": 1,
+                        "last_page": 1,
+                        "last_page_url": "http://localhost:8000/api/product?page=1",
+                        "next_page_url": null,
+                        "path": "http://localhost:8000/api/product",
+                        "per_page": 10,
+                        "prev_page_url": null,
+                        "to": 1,
+                        "total": 1
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-product",
+        "description": "get products",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "name"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "male",
+                "female",
+                "unisex"
+              ]
+            },
+            "in": "query",
+            "name": "gender"
+          },
+          {
+            "schema": {
+              "type": "boolean"
+            },
+            "in": "query",
+            "name": "child"
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "in": "query",
+            "name": "min_price"
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "in": "query",
+            "name": "max_price"
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "in": "query",
+            "name": "manufacturer_id"
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "in": "query",
+            "name": "sub_category_id"
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "in": "query",
+            "name": "sub_product_type_id"
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "in": "query",
+            "name": "size_id"
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "in": "query",
+            "name": "color_id"
+          },
+          {
+            "schema": {
+              "type": "boolean"
+            },
+            "in": "query",
+            "name": "has_discount"
+          }
+        ]
+      },
+      "post": {
+        "summary": "create product",
+        "tags": [
+          "Product"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "inserted_id": 4
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-product",
+        "description": "create product",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "description": "create product",
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "number"
+                  },
+                  "image": {
+                    "type": "string",
+                    "description": "IMAGE_FILE"
+                  },
+                  "gender": {
+                    "type": "string",
+                    "enum": [
+                      "male",
+                      "female",
+                      "unisex"
+                    ]
+                  },
+                  "child": {
+                    "type": "boolean"
+                  },
+                  "manufacturer_id": {
+                    "type": "integer"
+                  },
+                  "sub_category_id": {
+                    "type": "integer"
+                  },
+                  "sub_product_type_id": {
+                    "type": "integer"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "images": {
+                    "type": "array",
+                    "description": "IMAGE_FILE",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "sizes": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "colors": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "discount_price": {
+                    "type": "number"
+                  },
+                  "discount_start_date": {
+                    "type": "string",
+                    "default": "2020-10-10 10:10",
+                    "format": "date-time",
+                    "description": "Y-m-d H:i"
+                  },
+                  "discount_end_date": {
+                    "type": "string",
+                    "default": "2020-10-10 10:10",
+                    "description": "Y-m-d H:i",
+                    "format": "date-time"
+                  }
+                },
+                "required": [
+                  "name",
+                  "price",
+                  "image",
+                  "gender",
+                  "manufacturer_id",
+                  "sub_category_id",
+                  "sub_product_type_id",
+                  "sizes",
+                  "colors"
+                ]
+              },
+              "examples": {
+                "example-1": {}
+              }
+            }
+          }
+        }
+      },
+      "parameters": []
+    },
+    "/msk/category/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "delete": {
+        "summary": "delete category",
+        "tags": [
+          "Msk - Category"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "delete-msk-category-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "description": "delete category"
+      },
+      "put": {
+        "summary": "update category",
+        "tags": [
+          "Msk - Category"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "put-msk-category-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "description": "update category"
+      }
+    },
+    "/msk/category": {
+      "get": {
+        "summary": "get categories",
+        "tags": [
+          "Msk - Category"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "current_page": 1,
+                        "data": [
+                          {
+                            "id": 1,
+                            "name": "Kisi"
+                          },
+                          {
+                            "id": 2,
+                            "name": "Qadin"
+                          },
+                          {
+                            "id": 3,
+                            "name": "Usaq"
+                          }
+                        ],
+                        "first_page_url": "http://localhost:8000/api/msk/category?page=1",
+                        "from": 1,
+                        "last_page": 1,
+                        "last_page_url": "http://localhost:8000/api/msk/category?page=1",
+                        "next_page_url": null,
+                        "path": "http://localhost:8000/api/msk/category",
+                        "per_page": 10,
+                        "prev_page_url": null,
+                        "to": 3,
+                        "total": 3
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-msk-category",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "in": "query",
+            "name": "page"
+          }
+        ],
+        "description": "get categories"
+      },
+      "post": {
+        "summary": "create category",
+        "tags": [
+          "Msk - Category"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "inserted_id": 7
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-msk-category",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              }
+            }
+          },
+          "description": "Request body 1"
+        },
+        "description": "create category"
+      }
+    },
+    "/msk/availability_of_product/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "delete": {
+        "summary": "delete availability_of_product",
+        "tags": [
+          "Msk - Availability Of Product"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "delete-msk-availability_of_product-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "description": "delete availability_of_product"
+      },
+      "put": {
+        "summary": "update availability_of_product",
+        "tags": [
+          "Msk - Availability Of Product"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "put-msk-availability_of_product-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "description": "update availability_of_product"
+      }
+    },
+    "/msk/availability_of_product": {
+      "get": {
+        "summary": "get availability_of_products",
+        "tags": [
+          "Msk - Availability Of Product"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "current_page": 1,
+                        "data": [
+                          {
+                            "id": 1,
+                            "name": "Elde",
+                            "icon": null
+                          },
+                          {
+                            "id": 2,
+                            "name": "Anbarda",
+                            "icon": null
+                          }
+                        ],
+                        "first_page_url": "http://localhost:8000/api/msk/availability_of_product?page=1",
+                        "from": 1,
+                        "last_page": 1,
+                        "last_page_url": "http://localhost:8000/api/msk/availability_of_product?page=1",
+                        "next_page_url": null,
+                        "path": "http://localhost:8000/api/msk/availability_of_product",
+                        "per_page": 10,
+                        "prev_page_url": null,
+                        "to": 2,
+                        "total": 2
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-msk-availability_of_product",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "in": "query",
+            "name": "page"
+          }
+        ],
+        "description": "get availability_of_products"
+      },
+      "post": {
+        "summary": "create availability_of_product",
+        "tags": [
+          "Msk - Availability Of Product"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "inserted_id": 7
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-msk-availability_of_product",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              }
+            }
+          },
+          "description": "Request body 1"
+        },
+        "description": "create availability_of_product"
+      }
+    },
+    "/msk/country/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "delete": {
+        "summary": "delete country",
+        "tags": [
+          "Msk - Country"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "delete-msk-country-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "description": "delete country"
+      },
+      "put": {
+        "summary": "update country",
+        "tags": [
+          "Msk - Country"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "put-msk-country-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "description": "update country"
+      }
+    },
+    "/msk/country": {
+      "get": {
+        "summary": "get countries",
+        "tags": [
+          "Msk - Country"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "current_page": 1,
+                        "data": [
+                          {
+                            "id": 1,
+                            "name": "Azerbaijan"
+                          },
+                          {
+                            "id": 2,
+                            "name": "England"
+                          },
+                          {
+                            "id": 3,
+                            "name": "Turkey"
+                          }
+                        ],
+                        "first_page_url": "http://localhost:8000/api/msk/country?page=1",
+                        "from": 1,
+                        "last_page": 1,
+                        "last_page_url": "http://localhost:8000/api/msk/country?page=1",
+                        "next_page_url": null,
+                        "path": "http://localhost:8000/api/msk/country",
+                        "per_page": 10,
+                        "prev_page_url": null,
+                        "to": 3,
+                        "total": 3
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-msk-country",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "in": "query",
+            "name": "page"
+          }
+        ],
+        "description": "get countries"
+      },
+      "post": {
+        "summary": "create country",
+        "tags": [
+          "Msk - Country"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "inserted_id": 7
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-msk-country",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              }
+            }
+          },
+          "description": "Request body 1"
+        },
+        "description": "create country"
+      }
+    },
+    "/msk/coupon/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "delete": {
+        "summary": "delete coupon",
+        "tags": [
+          "Msk - Coupon"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "delete-msk-coupon-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "description": "delete coupon"
+      },
+      "put": {
+        "summary": "update coupon",
+        "tags": [
+          "Msk - Coupon"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "put-msk-coupon-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "string"
+                  },
+                  "discount": {
+                    "type": "number"
+                  },
+                  "percent": {
+                    "type": "boolean"
+                  },
+                  "type": {
+                    "type": "string",
+                    "default": "both",
+                    "enum": [
+                      "both",
+                      "delivery",
+                      "product"
+                    ]
+                  },
+                  "start_date": {
+                    "type": "string",
+                    "format": "date",
+                    "pattern": "Y-m-d"
+                  },
+                  "end_date": {
+                    "type": "string",
+                    "format": "date",
+                    "pattern": "Y-m-d"
+                  }
+                },
+                "required": [
+                  "code",
+                  "discount"
+                ]
+              }
+            }
+          }
+        },
+        "description": "update coupon"
+      }
+    },
+    "/msk/coupon": {
+      "get": {
+        "summary": "get coupons",
+        "tags": [
+          "Msk - Coupon"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "current_page": 1,
+                        "data": [
+                          {
+                            "id": 1,
+                            "code": "Paltar2020",
+                            "discount": "40.00",
+                            "percent": 1,
+                            "type": "both",
+                            "start": "2020-05-16",
+                            "end": "2020-07-16"
+                          },
+                          {
+                            "id": 2,
+                            "code": "asdas54zX2s3",
+                            "discount": "1.00",
+                            "percent": 1,
+                            "type": "both",
+                            "start": "2020-05-16",
+                            "end": null
+                          }
+                        ],
+                        "first_page_url": "http://localhost:8000/api/msk/coupon?page=1",
+                        "from": 1,
+                        "last_page": 1,
+                        "last_page_url": "http://localhost:8000/api/msk/coupon?page=1",
+                        "next_page_url": null,
+                        "path": "http://localhost:8000/api/msk/coupon",
+                        "per_page": 10,
+                        "prev_page_url": null,
+                        "to": 2,
+                        "total": 2
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-msk-coupon",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "in": "query",
+            "name": "page"
+          }
+        ],
+        "description": "get coupons"
+      },
+      "post": {
+        "summary": "create coupon",
+        "tags": [
+          "Msk - Coupon"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "inserted_id": 7
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-msk-coupon",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "string"
+                  },
+                  "discount": {
+                    "type": "number"
+                  },
+                  "percent": {
+                    "type": "boolean"
+                  },
+                  "type": {
+                    "type": "string",
+                    "default": "both",
+                    "enum": [
+                      "both",
+                      "product",
+                      "delivery"
+                    ]
+                  },
+                  "start_date": {
+                    "type": "string",
+                    "format": "date",
+                    "pattern": "Y-m-d"
+                  },
+                  "end_date": {
+                    "type": "string",
+                    "format": "date",
+                    "pattern": "Y-m-d"
+                  }
+                },
+                "required": [
+                  "code",
+                  "discount"
+                ]
+              }
+            }
+          },
+          "description": "Request body 1"
+        },
+        "description": "create coupon"
+      }
+    },
+    "/msk/manufacturer/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "delete": {
+        "summary": "delete manufacturer",
+        "tags": [
+          "Msk - Manufacturer"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "delete-msk-manufacturer-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "description": "delete manufacturer"
+      },
+      "put": {
+        "summary": "update manufacturer",
+        "tags": [
+          "Msk - Manufacturer"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "put-msk-manufacturer-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "description": "update manufacturer"
+      }
+    },
+    "/msk/manufacturer": {
+      "get": {
+        "summary": "get manufacturers",
+        "tags": [
+          "Msk - Manufacturer"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "current_page": 1,
+                        "data": [
+                          {
+                            "id": 1,
+                            "name": "ADIDAS"
+                          },
+                          {
+                            "id": 2,
+                            "name": "NIKE"
+                          },
+                          {
+                            "id": 3,
+                            "name": "PUMA"
+                          }
+                        ],
+                        "first_page_url": "http://localhost:8000/api/msk/manufacturer?page=1",
+                        "from": 1,
+                        "last_page": 1,
+                        "last_page_url": "http://localhost:8000/api/msk/manufacturer?page=1",
+                        "next_page_url": null,
+                        "path": "http://localhost:8000/api/msk/manufacturer",
+                        "per_page": 10,
+                        "prev_page_url": null,
+                        "to": 3,
+                        "total": 3
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-msk-manufacturer",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "in": "query",
+            "name": "page"
+          }
+        ],
+        "description": "get manufacturers"
+      },
+      "post": {
+        "summary": "create manufacturer",
+        "tags": [
+          "Msk - Manufacturer"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "inserted_id": 7
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-msk-manufacturer",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              }
+            }
+          },
+          "description": "Request body 1"
+        },
+        "description": "create manufacturer"
+      }
+    },
+    "/msk/metro/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "delete": {
+        "summary": "delete metro",
+        "tags": [
+          "Msk - Metro"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "delete-msk-metro-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "description": "delete metro"
+      },
+      "put": {
+        "summary": "update metro",
+        "tags": [
+          "Msk - Metro"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "put-msk-metro-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "region_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "name",
+                  "region_id"
+                ]
+              }
+            }
+          }
+        },
+        "description": "update metro"
+      }
+    },
+    "/msk/metro": {
+      "get": {
+        "summary": "get metros",
+        "tags": [
+          "Msk - Metro"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "current_page": 1,
+                        "data": [
+                          {
+                            "id": 1,
+                            "name": "Elmler",
+                            "region_id": 1,
+                            "region": {
+                              "id": 1,
+                              "name": "Baki",
+                              "country_id": 1
+                            }
+                          },
+                          {
+                            "id": 2,
+                            "name": "Yasamal",
+                            "region_id": 1,
+                            "region": {
+                              "id": 1,
+                              "name": "Baki",
+                              "country_id": 1
+                            }
+                          },
+                          {
+                            "id": 3,
+                            "name": "Nizami",
+                            "region_id": 1,
+                            "region": {
+                              "id": 1,
+                              "name": "Baki",
+                              "country_id": 1
+                            }
+                          }
+                        ],
+                        "first_page_url": "http://localhost:8000/api/msk/metro?page=1",
+                        "from": 1,
+                        "last_page": 1,
+                        "last_page_url": "http://localhost:8000/api/msk/metro?page=1",
+                        "next_page_url": null,
+                        "path": "http://localhost:8000/api/msk/metro",
+                        "per_page": 10,
+                        "prev_page_url": null,
+                        "to": 3,
+                        "total": 3
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-msk-metro",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "in": "query",
+            "name": "page"
+          }
+        ],
+        "description": "get metros"
+      },
+      "post": {
+        "summary": "create metro",
+        "tags": [
+          "Msk - Metro"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "inserted_id": 7
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-msk-metro",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "region_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "name",
+                  "region_id"
+                ]
+              }
+            }
+          },
+          "description": "Request body 1"
+        },
+        "description": "create metro"
+      }
+    },
+    "/msk/product_type/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "delete": {
+        "summary": "delete product_type",
+        "tags": [
+          "Msk - Product Type"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "delete-msk-product_type-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "description": "delete product_type"
+      },
+      "put": {
+        "summary": "update product_type",
+        "tags": [
+          "Msk - Product Type"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "put-msk-product_type-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "description": "update product_type"
+      }
+    },
+    "/msk/product_type": {
+      "get": {
+        "summary": "get product_types",
+        "tags": [
+          "Msk - Product Type"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "current_page": 1,
+                        "data": [
+                          {
+                            "id": 1,
+                            "name": "Idman"
+                          },
+                          {
+                            "id": 2,
+                            "name": "Klassik"
+                          },
+                          {
+                            "id": 3,
+                            "name": "Polklassik"
+                          }
+                        ],
+                        "first_page_url": "http://localhost:8000/api/msk/product_type?page=1",
+                        "from": 1,
+                        "last_page": 1,
+                        "last_page_url": "http://localhost:8000/api/msk/product_type?page=1",
+                        "next_page_url": null,
+                        "path": "http://localhost:8000/api/msk/product_type",
+                        "per_page": 10,
+                        "prev_page_url": null,
+                        "to": 3,
+                        "total": 3
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-msk-product_type",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "in": "query",
+            "name": "page"
+          }
+        ],
+        "description": "get product_types"
+      },
+      "post": {
+        "summary": "create product_type",
+        "tags": [
+          "Msk - Product Type"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "inserted_id": 7
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-msk-product_type",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              }
+            }
+          },
+          "description": "Request body 1"
+        },
+        "description": "create product_type"
+      }
+    },
+    "/msk/sub_product_type/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "delete": {
+        "summary": "delete sub_product_type",
+        "tags": [
+          "Msk - Sub Product Type"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "delete-msk-sub_product_type-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "description": "delete sub_product_type"
+      },
+      "put": {
+        "summary": "update sub_product_type",
+        "tags": [
+          "Msk - Sub Product Type"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "put-msk-sub_product_type-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "product_type_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "name",
+                  "product_type_id"
+                ]
+              }
+            }
+          }
+        },
+        "description": "update sub_product_type"
+      }
+    },
+    "/msk/sub_product_type": {
+      "get": {
+        "summary": "get sub_product_types",
+        "tags": [
+          "Msk - Sub Product Type"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "current_page": 1,
+                        "data": [
+                          {
+                            "id": 1,
+                            "product_type_id": 1,
+                            "name": "test1"
+                          },
+                          {
+                            "id": 2,
+                            "product_type_id": 1,
+                            "name": "test2"
+                          },
+                          {
+                            "id": 3,
+                            "product_type_id": 1,
+                            "name": "test3"
+                          }
+                        ],
+                        "first_page_url": "http://localhost:8000/api/msk/sub_product_type/translations?page=1",
+                        "from": 1,
+                        "last_page": 1,
+                        "last_page_url": "http://localhost:8000/api/msk/sub_product_type/translations?page=1",
+                        "next_page_url": null,
+                        "path": "http://localhost:8000/api/msk/sub_product_type/translations",
+                        "per_page": 10,
+                        "prev_page_url": null,
+                        "to": 3,
+                        "total": 3
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-msk-sub_product_type",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "in": "query",
+            "name": "page"
+          }
+        ],
+        "description": "get sub_product_types"
+      },
+      "post": {
+        "summary": "create sub_product_type",
+        "tags": [
+          "Msk - Sub Product Type"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "inserted_id": 7
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-msk-sub_product_type",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "product_type_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "name",
+                  "product_type_id"
+                ]
+              }
+            }
+          },
+          "description": "Request body 1"
+        },
+        "description": "create sub_product_type"
+      }
+    },
+    "/msk/region/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "delete": {
+        "summary": "delete region",
+        "tags": [
+          "Msk - Region"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "delete-msk-region-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "description": "delete region"
+      },
+      "put": {
+        "summary": "update region",
+        "tags": [
+          "Msk - Region"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "put-msk-region-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "country_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "name",
+                  "country_id"
+                ]
+              }
+            }
+          }
+        },
+        "description": "update region"
+      }
+    },
+    "/msk/region": {
+      "get": {
+        "summary": "get regions",
+        "tags": [
+          "Msk - Region"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "current_page": 1,
+                        "data": [
+                          {
+                            "id": 1,
+                            "name": "Baki",
+                            "country_id": 1,
+                            "country": {
+                              "id": 1,
+                              "name": "Azerbaijan"
+                            }
+                          },
+                          {
+                            "id": 2,
+                            "name": "Gence",
+                            "country_id": 1,
+                            "country": {
+                              "id": 1,
+                              "name": "Azerbaijan"
+                            }
+                          },
+                          {
+                            "id": 3,
+                            "name": "Sumqayit",
+                            "country_id": 1,
+                            "country": {
+                              "id": 1,
+                              "name": "Azerbaijan"
+                            }
+                          }
+                        ],
+                        "first_page_url": "http://localhost:8000/api/msk/region?page=1",
+                        "from": 1,
+                        "last_page": 1,
+                        "last_page_url": "http://localhost:8000/api/msk/region?page=1",
+                        "next_page_url": null,
+                        "path": "http://localhost:8000/api/msk/region",
+                        "per_page": 10,
+                        "prev_page_url": null,
+                        "to": 3,
+                        "total": 3
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-msk-region",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "in": "query",
+            "name": "page"
+          }
+        ],
+        "description": "get regions"
+      },
+      "post": {
+        "summary": "create region",
+        "tags": [
+          "Msk - Region"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "inserted_id": 7
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-msk-region",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "country_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "name",
+                  "country_id"
+                ]
+              }
+            }
+          },
+          "description": "Request body 1"
+        },
+        "description": "create region"
+      }
+    },
+    "/msk/size/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "delete": {
+        "summary": "delete size",
+        "tags": [
+          "Msk - Size"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "delete-msk-size-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "description": "delete size"
+      },
+      "put": {
+        "summary": "update size",
+        "tags": [
+          "Msk - Size"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "put-msk-size-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "description": "update size"
+      }
+    },
+    "/msk/size": {
+      "get": {
+        "summary": "get sizes",
+        "tags": [
+          "Msk - Size"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "current_page": 1,
+                        "data": [
+                          {
+                            "id": 1,
+                            "name": "X"
+                          },
+                          {
+                            "id": 2,
+                            "name": "XL"
+                          },
+                          {
+                            "id": 3,
+                            "name": "XXL"
+                          }
+                        ],
+                        "first_page_url": "http://localhost:8000/api/msk/size?page=1",
+                        "from": 1,
+                        "last_page": 1,
+                        "last_page_url": "http://localhost:8000/api/msk/size?page=1",
+                        "next_page_url": null,
+                        "path": "http://localhost:8000/api/msk/size",
+                        "per_page": 10,
+                        "prev_page_url": null,
+                        "to": 3,
+                        "total": 3
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-msk-size",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "in": "query",
+            "name": "page"
+          }
+        ],
+        "description": "get sizes"
+      },
+      "post": {
+        "summary": "create size",
+        "tags": [
+          "Msk - Size"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "inserted_id": 7
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-msk-size",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              }
+            }
+          },
+          "description": "Request body 1"
+        },
+        "description": "create size"
+      }
+    },
+    "/msk/sub_category/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "delete": {
+        "summary": "delete sub_category",
+        "tags": [
+          "Msk - Sub Category"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "delete-msk-sub_category-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "description": "delete sub_category"
+      },
+      "put": {
+        "summary": "update sub_category",
+        "tags": [
+          "Msk - Sub Category"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "put-msk-sub_category-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "category_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "name",
+                  "category_id"
+                ]
+              }
+            }
+          }
+        },
+        "description": "update sub_category"
+      }
+    },
+    "/msk/sub_category": {
+      "get": {
+        "summary": "get sub_categories",
+        "tags": [
+          "Msk - Sub Category"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "current_page": 1,
+                        "data": [
+                          {
+                            "id": 1,
+                            "category_id": 1,
+                            "name": "Salvar"
+                          },
+                          {
+                            "id": 2,
+                            "category_id": 1,
+                            "name": "Koynek"
+                          },
+                          {
+                            "id": 3,
+                            "category_id": 1,
+                            "name": "Ayaqqabi"
+                          }
+                        ],
+                        "first_page_url": "http://localhost:8000/api/msk/sub_category?page=1",
+                        "from": 1,
+                        "last_page": 1,
+                        "last_page_url": "http://localhost:8000/api/msk/sub_category?page=1",
+                        "next_page_url": null,
+                        "path": "http://localhost:8000/api/msk/sub_category",
+                        "per_page": 10,
+                        "prev_page_url": null,
+                        "to": 3,
+                        "total": 3
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-msk-sub_category",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "in": "query",
+            "name": "page"
+          }
+        ],
+        "description": "get sub_categories"
+      },
+      "post": {
+        "summary": "create sub_category",
+        "tags": [
+          "Msk - Sub Category"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "inserted_id": 7
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-msk-sub_category",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "category_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "name",
+                  "category_id"
+                ]
+              }
+            }
+          },
+          "description": "Request body 1"
+        },
+        "description": "create sub_category"
+      }
+    },
+    "/msk/tag/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "delete": {
+        "summary": "delete tag",
+        "tags": [
+          "Msk - Tag"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "delete-msk-tag-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "description": "delete tag"
+      },
+      "put": {
+        "summary": "update tag",
+        "tags": [
+          "Msk - Tag"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "put-msk-tag-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "description": "update tag"
+      }
+    },
+    "/msk/tag": {
+      "get": {
+        "summary": "get tags",
+        "tags": [
+          "Msk - Tag"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "current_page": 1,
+                        "data": [
+                          {
+                            "id": 1,
+                            "name": "Yeni"
+                          },
+                          {
+                            "id": 2,
+                            "name": "Endirimde"
+                          }
+                        ],
+                        "first_page_url": "http://localhost:8000/api/msk/tag?page=1",
+                        "from": 1,
+                        "last_page": 1,
+                        "last_page_url": "http://localhost:8000/api/msk/tag?page=1",
+                        "next_page_url": null,
+                        "path": "http://localhost:8000/api/msk/tag",
+                        "per_page": 10,
+                        "prev_page_url": null,
+                        "to": 2,
+                        "total": 2
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-msk-tag",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "in": "query",
+            "name": "page"
+          }
+        ],
+        "description": "get tags"
+      },
+      "post": {
+        "summary": "create tag",
+        "tags": [
+          "Msk - Tag"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "inserted_id": 7
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-msk-tag",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              }
+            }
+          },
+          "description": "Request body 1"
+        },
+        "description": "create tag"
+      }
+    },
+    "/msk/user_notification/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "delete": {
+        "summary": "delete user_notification",
+        "tags": [
+          "Msk - User Notification"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "delete-msk-user_notification-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "description": "update user_notification"
+      },
+      "put": {
+        "summary": "update user_notification",
+        "tags": [
+          "Msk - User Notification"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "put-msk-user_notification-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "content": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string",
+                    "default": "info",
+                    "enum": [
+                      "info",
+                      "success",
+                      "danger",
+                      "warning"
+                    ]
+                  }
+                },
+                "required": [
+                  "content"
+                ]
+              }
+            }
+          }
+        },
+        "description": "update user_notification"
+      }
+    },
+    "/msk/user_notification": {
+      "get": {
+        "summary": "get user_notifications",
+        "tags": [
+          "Msk - User Notification"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "current_page": 1,
+                        "data": [
+                          {
+                            "id": 1,
+                            "content": "Tapilmadi",
+                            "type": "danger",
+                            "icon": null
+                          },
+                          {
+                            "id": 2,
+                            "content": "Tapildi",
+                            "type": "success",
+                            "icon": null
+                          }
+                        ],
+                        "first_page_url": "http://localhost:8000/api/msk/user_notification?page=1",
+                        "from": 1,
+                        "last_page": 1,
+                        "last_page_url": "http://localhost:8000/api/msk/user_notification?page=1",
+                        "next_page_url": null,
+                        "path": "http://localhost:8000/api/msk/user_notification",
+                        "per_page": 10,
+                        "prev_page_url": null,
+                        "to": 2,
+                        "total": 2
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-msk-user_notification",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "in": "query",
+            "name": "page"
+          }
+        ],
+        "description": "get user_notifications"
+      },
+      "post": {
+        "summary": "create user_notification",
+        "tags": [
+          "Msk - User Notification"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "inserted_id": 7
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-msk-user_notification",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "content": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string",
+                    "default": "info",
+                    "enum": [
+                      "info",
+                      "success",
+                      "danger",
+                      "warning"
+                    ]
+                  }
+                },
+                "required": [
+                  "content"
+                ]
+              }
+            }
+          },
+          "description": "Request body 1"
+        },
+        "description": "create user_notification"
+      }
+    },
+    "/msk/currency/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "delete": {
+        "summary": "delete currency",
+        "tags": [
+          "Msk - Currency"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "delete-msk-currency-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "description": "delete currency"
+      },
+      "put": {
+        "summary": "update currency",
+        "tags": [
+          "Msk - Currency"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "put-msk-currency-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "amount": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "description": "update currency"
+      }
+    },
+    "/msk/currency": {
+      "get": {
+        "summary": "get currencies",
+        "tags": [
+          "Msk - Currency"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "current_page": 1,
+                        "data": [
+                          {
+                            "id": 1,
+                            "name": "azn",
+                            "amount": "1.00"
+                          },
+                          {
+                            "id": 2,
+                            "name": "rubl",
+                            "amount": "1.00"
+                          },
+                          {
+                            "id": 3,
+                            "name": "dirhem",
+                            "amount": "1.00"
+                          }
+                        ],
+                        "first_page_url": "http://localhost:8000/api/msk/currency?page=1",
+                        "from": 1,
+                        "last_page": 1,
+                        "last_page_url": "http://localhost:8000/api/msk/currency?page=1",
+                        "next_page_url": null,
+                        "path": "http://localhost:8000/api/msk/currency",
+                        "per_page": 10,
+                        "prev_page_url": null,
+                        "to": 3,
+                        "total": 3
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-msk-currency",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "in": "query",
+            "name": "page"
+          }
+        ],
+        "description": "get currencies"
+      },
+      "post": {
+        "summary": "create currency",
+        "tags": [
+          "Msk - Currency"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "inserted_id": 7
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-msk-currency",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "amount": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              }
+            }
+          },
+          "description": "Request body 1"
+        },
+        "description": "create currency"
+      }
+    },
+    "/msk/design": {
+      "get": {
+        "summary": "get designs",
+        "tags": [
+          "Msk - Design"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "current_page": 1,
+                        "data": [
+                          {
+                            "id": 1,
+                            "sub_product_type_id": 1,
+                            "name": "ttt",
+                            "image": "http://localhost:8000/images/design/1589625137b9qEuizxmYkHwL579wxu.jpg",
+                            "price": "4.00"
+                          }
+                        ],
+                        "first_page_url": "http://localhost:8000/api/msk/design?page=1",
+                        "from": 1,
+                        "last_page": 1,
+                        "last_page_url": "http://localhost:8000/api/msk/design?page=1",
+                        "next_page_url": null,
+                        "path": "http://localhost:8000/api/msk/design",
+                        "per_page": 10,
+                        "prev_page_url": null,
+                        "to": 1,
+                        "total": 1
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-msk-design",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "in": "query",
+            "name": "page"
+          }
+        ],
+        "description": "get designs"
+      },
+      "post": {
+        "summary": "create design",
+        "tags": [
+          "Msk - Design"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "inserted_id": 7
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-msk-design",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "integer"
+                  },
+                  "sub_product_type_id": {
+                    "type": "integer"
+                  },
+                  "image": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "price",
+                  "sub_product_type_id",
+                  "image"
+                ]
+              }
+            }
+          },
+          "description": "Request body 1"
+        },
+        "description": "create design"
+      }
+    },
+    "/msk/design/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "delete": {
+        "summary": "delete design",
+        "tags": [
+          "Msk - Design"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "delete-msk-design-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "description": "delete design"
+      },
+      "post": {
+        "summary": "update design",
+        "tags": [
+          "Msk - Design"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "put-msk-design-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "sub_product_type_id": {
+                    "type": "integer"
+                  },
+                  "price": {
+                    "type": "number"
+                  },
+                  "image": {
+                    "type": "string"
+                  },
+                  "_method": {
+                    "type": "string",
+                    "default": "PUT",
+                    "description": "PUT",
+                    "enum": [
+                      "PUT"
+                    ],
+                    "example": "PUT"
+                  }
+                },
+                "required": [
+                  "name",
+                  "sub_product_type_id",
+                  "price",
+                  "image",
+                  "_method"
+                ]
+              }
+            }
+          }
+        },
+        "description": "update design"
+      }
+    },
+    "/msk/color": {
+      "get": {
+        "summary": "get colors",
+        "tags": [
+          "Msk - Color"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "current_page": 1,
+                        "data": [
+                          {
+                            "id": 2,
+                            "name": "ag"
+                          },
+                          {
+                            "id": 3,
+                            "name": "qara"
+                          },
+                          {
+                            "id": 1,
+                            "name": "qirmizi"
+                          }
+                        ],
+                        "first_page_url": "http://localhost:8000/api/msk/color?page=1",
+                        "from": 1,
+                        "last_page": 1,
+                        "last_page_url": "http://localhost:8000/api/msk/color?page=1",
+                        "next_page_url": null,
+                        "path": "http://localhost:8000/api/msk/color",
+                        "per_page": 10,
+                        "prev_page_url": null,
+                        "to": 3,
+                        "total": 3
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-msk-color",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "in": "query",
+            "name": "page"
+          }
+        ],
+        "description": "get colors"
+      },
+      "post": {
+        "summary": "create color",
+        "tags": [
+          "Msk - Color"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "inserted_id": 7
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-msk-color",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              }
+            }
+          },
+          "description": "Request body 1"
+        },
+        "description": "create color"
+      }
+    },
+    "/msk/color/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "delete": {
+        "summary": "delete color",
+        "tags": [
+          "Msk - Color"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "delete-msk-color-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "description": "delete color"
+      },
+      "put": {
+        "summary": "update color",
+        "tags": [
+          "Msk - Color"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "put-msk-color-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "description": "update color"
+      }
+    },
+    "/msk/type_of_delivery/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "delete": {
+        "summary": "delete type of delivery",
+        "tags": [
+          "Msk - Type of delivery"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "delete-msk-type_of_delivery-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "description": "delete type of delivery"
+      },
+      "put": {
+        "summary": "update type of delivery",
+        "tags": [
+          "Msk - Type of delivery"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "put-msk-type_of_delivery-id",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "name",
+                  "content",
+                  "price"
+                ]
+              }
+            }
+          }
+        },
+        "description": "update type of delivery"
+      }
+    },
+    "/msk/type_of_delivery": {
+      "get": {
+        "summary": "get type of deliveries",
+        "tags": [
+          "Msk - Type of delivery"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "current_page": 1,
+                        "data": [
+                          {
+                            "id": 1,
+                            "name": "Sade catdirilma",
+                            "content": "Catdirilma Baki seheri erazisinde ...",
+                            "price": 1
+                          },
+                          {
+                            "id": 2,
+                            "name": "Express catdirilma",
+                            "content": "Baki seheri ve rayonlara ...",
+                            "price": 1
+                          }
+                        ],
+                        "first_page_url": "http://localhost:8000/api/msk/type_of_delivery?page=1",
+                        "from": 1,
+                        "last_page": 1,
+                        "last_page_url": "http://localhost:8000/api/msk/type_of_delivery?page=1",
+                        "next_page_url": null,
+                        "path": "http://localhost:8000/api/msk/type_of_delivery",
+                        "per_page": 10,
+                        "prev_page_url": null,
+                        "to": 2,
+                        "total": 2
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-msk-type_of_delivery",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "in": "query",
+            "name": "page"
+          }
+        ],
+        "description": "get type of deliveries"
+      },
+      "post": {
+        "summary": "create type of delivery",
+        "tags": [
+          "Msk - Type of delivery"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "inserted_id": 7
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-msk-type_of_delivery",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "name",
+                  "content",
+                  "price"
+                ]
+              }
+            }
+          },
+          "description": "Request body 1"
+        },
+        "description": "create type of delivery"
+      }
+    },
+    "/dev/operation_log": {
+      "get": {
+        "summary": "show all operation logs",
+        "tags": [
+          "Dev"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "current_page": 1,
+                      "data": [
+                        {
+                          "id": 8,
+                          "user_id": 2,
+                          "table_name": "type_of_deliveries",
+                          "related_id": 4,
+                          "type": "updated",
+                          "old_data": {
+                            "id": 4,
+                            "name": "bb",
+                            "content": "cc",
+                            "price": 45
+                          },
+                          "date": "2020-05-10 01:25:36",
+                          "now_data": null,
+                          "user": {
+                            "id": 2,
+                            "username": "admin"
+                          }
+                        },
+                        {
+                          "id": 9,
+                          "user_id": 2,
+                          "table_name": "type_of_deliveries",
+                          "related_id": 4,
+                          "type": "updated",
+                          "old_data": {
+                            "id": 4,
+                            "name": "string",
+                            "content": "string",
+                            "price": 8
+                          },
+                          "date": "2020-05-10 01:25:42",
+                          "now_data": null,
+                          "user": {
+                            "id": 2,
+                            "username": "admin"
+                          }
+                        }
+                      ],
+                      "first_page_url": "http://localhost:8000/api/dev/operation_log?page=1",
+                      "from": 1,
+                      "last_page": 1,
+                      "last_page_url": "http://localhost:8000/api/dev/operation_log?page=1",
+                      "next_page_url": null,
+                      "path": "http://localhost:8000/api/dev/operation_log",
+                      "per_page": 20,
+                      "prev_page_url": null,
+                      "to": 2,
+                      "total": 2
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-dev-operation_log",
+        "description": "show all operation logs",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "table_name"
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "in": "query",
+            "name": "related_id"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "created",
+                "updated",
+                "deleted"
+              ]
+            },
+            "in": "query",
+            "name": "type"
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "in": "query",
+            "name": "user_id"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "default": "name"
+            },
+            "in": "query",
+            "name": "key"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "value"
+          }
+        ]
+      }
+    },
+    "/admin/role": {
+      "post": {
+        "summary": "Admin update user roles",
+        "operationId": "post-admin-role",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Update user roles",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_id": {
+                    "type": "integer"
+                  },
+                  "roles": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Admin"
+        ]
+      }
+    },
+    "/admin/register": {
+      "post": {
+        "summary": "Admin Register",
+        "operationId": "post-admin-register",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "inserted_id": 2
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "password_confirmation": {
+                    "type": "string"
+                  },
+                  "roles": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "required": [
+                  "username",
+                  "email",
+                  "password",
+                  "password_confirmation",
+                  "roles"
+                ]
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "tags": [
+          "Admin"
+        ],
+        "description": "Admin Register"
+      }
+    },
+    "/admin/login": {
+      "post": {
+        "summary": "Admin login",
+        "operationId": "post-admin-login",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "id": 1,
+                        "username": "admin",
+                        "email": "admin@test.com",
+                        "email_verified_at": null,
+                        "gender": "male",
+                        "birth": null,
+                        "created_at": "2020-05-04T15:44:36.000000Z",
+                        "updated_at": "2020-05-04T15:44:36.000000Z",
+                        "roles": [
+                          {
+                            "id": 1,
+                            "name": "admin",
+                            "pivot": {
+                              "user_id": 1,
+                              "role_id": 1
+                            }
+                          }
+                        ],
+                        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiY2RmMzIxYWM2NTQzMWM5NWMwMWU0NDMxMTdjMTYxYzQzMWE3ZWU2YTgzMTBhODVkYjZhMWY2NmY1NzcwMjJhZjg3OWI5NzY4ZGE0YWQ4NzQiLCJpYXQiOjE1ODg3NzQ1MDEsIm5iZiI6MTU4ODc3NDUwMSwiZXhwIjoxNjIwMzEwNTAxLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.m8BVTniLwmfik0QSZdzOOONZxz9Fqb87DyrRLqgTPUU9mXtouBcAFNLRUIRvpERmAMJKjfXxSxt4KJen2F0U8_XTAP1NJO3kSCDm-i446n4PAI8ozozcciuPqtpynEmtTAsvJOwR93mjn2vB92HLDzAv9Cg0uOeFRiNj2iC7eVTDxKljTEBMKwHaduxosG9Ng5dE-ymUcAzQVTrQ_40JYJoUtrXFOrkCFO3VVt_XtMIG5tD6WE8Bo0p00Ip4o_fXQIl0J0AYtpTqf8rwVmN82sIGRZ5aXpHA010mBY42hH0YK2bc0tnMlPoTRLb3CTRbYJr8RsTSEuGPWv3l613k2hYfH6pbTzll5hPsjGUwd9QekUM3Gp77oRV1fdj_cTB-uL5h0IymDVcxoZ8fsS4Nry2Sltig88eyiUVtAvL9hk5NOm2iBznEl1iKxcqlryXwSCb0Tkml1fnd1nGSpdJgoIW4OwV-pJTyfv5Mw9mDdo_4gtuq9F6SwKGXwqFDQvVZOpmrEr3B9RKMBxby2X6DV7_vAu3c67TzvV7IKIfzeP0fMoGTC9hVL8KvMGm2yRk3p1LTbJrEtBcaZfbwOUzsIzV_2Eh4AhHvM5DoS6odTD2-AdxxeWkZx3tTVBSbojwdXbesiqzgQYUcEvHJjAcMWwe_m7sGGMMdaXv193BrfS8"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Login",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "username",
+                  "password"
+                ]
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "username": "admin",
+                    "password": "password"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Admin"
+        ]
+      },
+      "parameters": []
+    },
+    "/auth/register": {
+      "post": {
+        "summary": "Auth Register",
+        "operationId": "post-auth-register",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "inserted_id": 2
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "password_confirmation": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "username",
+                  "email",
+                  "password",
+                  "password_confirmation"
+                ]
+              }
+            }
+          }
+        },
+        "tags": [
+          "Auth"
+        ],
+        "description": "Auth Register"
+      }
+    },
+    "/auth/me": {
+      "get": {
+        "summary": "Auth me",
+        "tags": [
+          "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "id": 1,
+                        "username": "admin",
+                        "email": "admin@test.com",
+                        "email_verified_at": null,
+                        "created_at": "2020-04-05T09:12:41.000000Z",
+                        "updated_at": "2020-04-05T09:12:41.000000Z",
+                        "roles": [
+                          {
+                            "id": 1,
+                            "name": "admin",
+                            "pivot": {
+                              "user_id": 1,
+                              "role_id": 1
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-auth-me",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "description": "Auth me"
+      }
+    },
+    "/auth/logout": {
+      "post": {
+        "summary": "Auth Logout",
+        "operationId": "post-auth-logout",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "tags": [
+          "Auth"
+        ],
+        "description": "Auth Logout"
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "summary": "Auth login",
+        "operationId": "post-auht-login",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": {
+                        "id": 1,
+                        "username": "admin",
+                        "email": "admin@test.com",
+                        "email_verified_at": null,
+                        "gender": "male",
+                        "birth": null,
+                        "created_at": "2020-05-04T15:44:36.000000Z",
+                        "updated_at": "2020-05-04T15:44:36.000000Z",
+                        "roles": [
+                          {
+                            "id": 1,
+                            "name": "admin",
+                            "pivot": {
+                              "user_id": 1,
+                              "role_id": 1
+                            }
+                          }
+                        ],
+                        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiY2RmMzIxYWM2NTQzMWM5NWMwMWU0NDMxMTdjMTYxYzQzMWE3ZWU2YTgzMTBhODVkYjZhMWY2NmY1NzcwMjJhZjg3OWI5NzY4ZGE0YWQ4NzQiLCJpYXQiOjE1ODg3NzQ1MDEsIm5iZiI6MTU4ODc3NDUwMSwiZXhwIjoxNjIwMzEwNTAxLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.m8BVTniLwmfik0QSZdzOOONZxz9Fqb87DyrRLqgTPUU9mXtouBcAFNLRUIRvpERmAMJKjfXxSxt4KJen2F0U8_XTAP1NJO3kSCDm-i446n4PAI8ozozcciuPqtpynEmtTAsvJOwR93mjn2vB92HLDzAv9Cg0uOeFRiNj2iC7eVTDxKljTEBMKwHaduxosG9Ng5dE-ymUcAzQVTrQ_40JYJoUtrXFOrkCFO3VVt_XtMIG5tD6WE8Bo0p00Ip4o_fXQIl0J0AYtpTqf8rwVmN82sIGRZ5aXpHA010mBY42hH0YK2bc0tnMlPoTRLb3CTRbYJr8RsTSEuGPWv3l613k2hYfH6pbTzll5hPsjGUwd9QekUM3Gp77oRV1fdj_cTB-uL5h0IymDVcxoZ8fsS4Nry2Sltig88eyiUVtAvL9hk5NOm2iBznEl1iKxcqlryXwSCb0Tkml1fnd1nGSpdJgoIW4OwV-pJTyfv5Mw9mDdo_4gtuq9F6SwKGXwqFDQvVZOpmrEr3B9RKMBxby2X6DV7_vAu3c67TzvV7IKIfzeP0fMoGTC9hVL8KvMGm2yRk3p1LTbJrEtBcaZfbwOUzsIzV_2Eh4AhHvM5DoS6odTD2-AdxxeWkZx3tTVBSbojwdXbesiqzgQYUcEvHJjAcMWwe_m7sGGMMdaXv193BrfS8"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Login",
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "az"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "username",
+                  "password"
+                ]
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "username": "admin",
+                    "password": "password"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": []
+    },
+    "/product/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "delete": {
+        "summary": "delete product",
+        "tags": [
+          "Product"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "delete-product-id",
+        "description": "delete product",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ]
+      },
+      "post": {
+        "summary": "update product",
+        "tags": [
+          "Product"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": true,
+                      "data": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-product-id",
+        "description": "update product",
+        "security": [
+          {
+            "API Key": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Content-lang"
+          }
+        ],
+        "requestBody": {
+          "description": "create product",
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "number"
+                  },
+                  "image": {
+                    "type": "string",
+                    "description": "IMAGE_FILE"
+                  },
+                  "gender": {
+                    "type": "string",
+                    "enum": [
+                      "male",
+                      "female",
+                      "unisex"
+                    ]
+                  },
+                  "child": {
+                    "type": "boolean"
+                  },
+                  "manufacturer_id": {
+                    "type": "integer"
+                  },
+                  "sub_category_id": {
+                    "type": "integer"
+                  },
+                  "sub_product_type_id": {
+                    "type": "integer"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "sizes": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "colors": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "required": [
+                  "name",
+                  "price",
+                  "gender",
+                  "manufacturer_id",
+                  "sub_category_id",
+                  "sub_product_type_id",
+                  "sizes",
+                  "colors"
+                ]
+              },
+              "examples": {
+                "example-1": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
