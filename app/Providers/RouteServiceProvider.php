@@ -42,12 +42,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
-        if($lang = request()->header('Content-lang'))
-        {
-            if(in_array($lang,['en','ru'])){
-                app()->setLocale($lang);
-            }
-        }
 
         $this->mapApiRoutes();
 

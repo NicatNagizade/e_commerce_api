@@ -363,8 +363,7 @@
                     "type": "number"
                   },
                   "image": {
-                    "type": "string",
-                    "description": "IMAGE_FILE"
+                    "type": "file"
                   },
                   "gender": {
                     "type": "string",
@@ -394,9 +393,9 @@
                   },
                   "images": {
                     "type": "array",
-                    "description": "IMAGE_FILE",
+                    "description":"[file]",
                     "items": {
-                      "type": "string"
+                      "type": "file"
                     }
                   },
                   "sizes": {
@@ -4392,7 +4391,7 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
                 "type": "object",
                 "properties": {
@@ -4406,7 +4405,7 @@
                     "type": "integer"
                   },
                   "image": {
-                    "type": "string"
+                    "type": "file"
                   }
                 },
                 "required": [
@@ -4536,24 +4535,14 @@
                     "type": "number"
                   },
                   "image": {
-                    "type": "string"
-                  },
-                  "_method": {
-                    "type": "string",
-                    "default": "PUT",
-                    "description": "PUT",
-                    "enum": [
-                      "PUT"
-                    ],
-                    "example": "PUT"
+                    "type": "file"
                   }
                 },
                 "required": [
                   "name",
                   "sub_product_type_id",
                   "price",
-                  "image",
-                  "_method"
+                  "image"
                 ]
               }
             }
@@ -5866,8 +5855,7 @@
                     "type": "number"
                   },
                   "image": {
-                    "type": "string",
-                    "description": "IMAGE_FILE"
+                    "type": "file"
                   },
                   "gender": {
                     "type": "string",

@@ -21,8 +21,6 @@ class CreateOperationLogsTable extends Migration
             $table->enum('type',['deleted','updated','created'])->default('created');
             $table->text('old_data')->nullable();
             $table->dateTime('date');
-
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

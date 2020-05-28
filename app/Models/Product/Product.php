@@ -11,9 +11,6 @@ use Carbon\Carbon;
 class Product extends BaseModel
 {
     public $timestamps = true;
-
-    public $translation_table = 'translation_products';
-    public $translation_many_table_name = false;
     public $translation_columns = ['name', 'description', 'content'];
     public const IMAGE_PATH = 'images/product/images/';
     public const SUB_IMAGE_PATH = 'images/product/sub_images/';

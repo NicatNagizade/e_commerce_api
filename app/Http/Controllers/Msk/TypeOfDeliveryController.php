@@ -14,7 +14,7 @@ class TypeOfDeliveryController extends Controller
 
     public function index()
     {
-        $type_of_deliveries = TypeOfDelivery::t()->paginate(10);
+        $type_of_deliveries = TypeOfDelivery::paginate(10);
         return $this->sendSuccess($type_of_deliveries);
     }
 

@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers\Dev;
 
+use App\Helpers\Translation\TranslationHelper;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
 
 class TranslationController extends Controller
 {
     private $msk_names = [
-        'color', 'category', 'product_type',
-        'sub_product_type','availability_of_product','country',
-        'coupon','currency','design','manufacturer','metro',
-        'region','size','sub_category','tag','type_of_delivery',
-        'user_notification'
+        'colors', 'categories', 'product_types',
+        'sub_product_types','availability_of_products','countries',
+        'coupons','currencies','designs','manufacturers','metros',
+        'regions','sizes','sub_categories','tags','type_of_deliveries',
+        'user_notifications'
         ];
 
-    private $products_names = ['product'];
+    private $products_names = ['products'];
 
     public function getAllTranslations($table)
     {
@@ -23,7 +24,8 @@ class TranslationController extends Controller
         if($model_name === ''){
             return $this->sendError();
         }
-        $res = $model_name::allTranslations()->paginate(10);
+        $translation = new TranslationHelper(new $model_name);
+        $res = $translation->allTranslations()->paginate(10);
         return $this->sendSuccess($res);
     }
 
@@ -33,14 +35,14 @@ class TranslationController extends Controller
         if($model_name === ''){
             return $this->sendError();
         }
-        $model = $model_name::findOrFail($id);
+        $model = new TranslationHelper(new $model_name, $id);
         $model->updateTranslation();
         return $this->sendSuccess();
     }
 
     public function getModel($table)
     {
-        $table_camel = ucfirst(Str::camel($table));
+        $table_camel = ucfirst(Str::camel(Str::singular($table)));
         if(in_array($table, $this->products_names)){
             return 'App\Models\Product\\'.$table_camel;
         }

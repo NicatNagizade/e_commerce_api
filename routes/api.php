@@ -30,7 +30,7 @@ Route::middleware('auth:api')->group(function(){
     Route::prefix('product')->namespace('Product')->group(function(){
         Route::get('','ProductController@getProducts');
         Route::post('','ProductController@createProduct');
-        Route::put('{id}','ProductController@updateProduct');
+        Route::post('{id}','ProductController@updateProduct');
         Route::delete('{id}','ProductController@deleteProduct');
     });
 
@@ -134,7 +134,7 @@ Route::middleware('auth:api')->group(function(){
         Route::prefix('design')->group(function(){
             Route::get('', 'DesignController@index');
             Route::post('', 'DesignController@store');
-            Route::put('{id}', 'DesignController@update');
+            Route::post('{id}', 'DesignController@update');
             Route::delete('{id}', 'DesignController@destroy');
         });
     });
