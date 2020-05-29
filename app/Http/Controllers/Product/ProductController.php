@@ -12,6 +12,7 @@ class ProductController extends Controller
     public function __construct()
     {
         $this->middleware('role:admin')->except('getProducts');
+        // $this->middleware('api_debugbar:sql');
     }
 
     public function getProducts()

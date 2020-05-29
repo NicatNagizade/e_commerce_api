@@ -35,7 +35,7 @@ class TranslationController extends Controller
         if($model_name === ''){
             return $this->sendError();
         }
-        $model = new TranslationHelper(new $model_name, $id);
+        $model = new TranslationHelper($model_name::findOrFail($id));
         $model->updateTranslation();
         return $this->sendSuccess();
     }

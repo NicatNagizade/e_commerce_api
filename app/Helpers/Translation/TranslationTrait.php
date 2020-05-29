@@ -9,29 +9,32 @@ trait TranslationTrait
     public $translation_many_related_name = true;
     public $translation_many_table_name = true;
     public $translation_auto = false;
-    private $translation_start = false;
     private $translation_helper;
+
+    public function translationBeginCheck(): bool
+    {
+        if ($this->translation_auto === true) {
+            if (TranslationHelper::getLanguage() !== '') {
+                return true;
+            }
+        }
+        return false;
+    }
 
     // begin translation
     public static function t(array $columns = [])
     {
         $model = new static;
-        if (TranslationHelper::getLanguage() !== '') {
-            if($columns){
-                $model->translation_columns = $columns;
-            }
-            $model->translation_helper = new TranslationHelper($model);
-            $model->translation_start = true;
-            $query = $model->newQuery();
-            $model->translation_helper->translation($query);
-            return $query;
+        $model->translation_auto = true;
+        if ($columns) {
+            $model->translation_columns = $columns;
         }
         return $model->newQuery();
     }
 
     public function newEloquentBuilder($builder)
     {
-        if ($this->translation_start) {
+        if ($this->translationBeginCheck()) {
             return new TranslationBuilder($builder, $this->translation_helper);
         }
         return parent::newEloquentBuilder($builder);
@@ -39,14 +42,11 @@ trait TranslationTrait
 
     public function newQuery()
     {
-        if($this->translation_auto && !$this->translation_start){
-            if(TranslationHelper::getLanguage() !== ''){
-                $this->translation_helper = new TranslationHelper($this);
-                $this->translation_start = true;
-                $query = parent::newQuery();
-                $this->translation_helper->translation($query);
-                return $query;
-            }
+        if ($this->translationBeginCheck()){
+            $this->translation_helper = new TranslationHelper($this);
+            $query = parent::newQuery();
+            $this->translation_helper->translation($query);
+            return $query;
         }
         return parent::newQuery();
     }

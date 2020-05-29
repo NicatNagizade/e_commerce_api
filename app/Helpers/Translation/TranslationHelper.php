@@ -6,15 +6,13 @@ use Illuminate\Support\Facades\DB;
 
 class TranslationHelper{
     private $model;
-    private $model_id;
     private static $languages = ['en', 'ru'];
     private static $default_language = 'az';
     private static $get_language;
 
-    public function __construct($model = null,int $id = 0)
+    public function __construct($model = null)
     {
         $this->model = $model;
-        $this->model_id = $id;
     }
 
     public static function getLanguage(): string
@@ -27,7 +25,7 @@ class TranslationHelper{
                 static::$get_language = $lang;
             }
         }
-        return static::$get_language;
+        return (string)static::$get_language;
     }
 
     public function allTranslations()
@@ -160,7 +158,7 @@ class TranslationHelper{
             ->when($this->model->translation_many_table_name, function ($q) {
                 $q->where('table_name', $this->model->getTable());
             })
-            ->where('related_id', $this->model_id)
+            ->where('related_id', $this->model->getKey())
             ->delete();
     }
 
@@ -176,7 +174,7 @@ class TranslationHelper{
 
     public function translationUpdateOrInsert(array $args, bool $update = true): void
     {
-        $basic_data['related_id'] = $this->model_id;
+        $basic_data['related_id'] = $this->model->getKey();
         if ($this->model->translation_many_table_name) {
             $basic_data['table_name'] = $this->model->getTable();
         }
