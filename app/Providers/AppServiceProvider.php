@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Helpers\Mixins\BuilderMixin;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,8 +25,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if($lang = request()->header('Content-lang')){
+        if ($lang = request()->header('Content-lang')) {
             app()->setLocale($lang);
         }
+
+        Builder::mixin(new BuilderMixin);
     }
 }

@@ -4,33 +4,23 @@ namespace App\Helpers\Currency;
 
 trait CurrencyTrait
 {
-
-    public $currency_columns = [];
-
     public function getCurrencyColumns(): array
     {
-        return $this->currency_columns;
+        return $this->currency_columns ?? ['price'];
     }
 
     public function toArray(): array
     {
-        if(!$this->currency_columns){
-            $this->currencyToArray();
-        }
+        $this->currencyToArray();
         return parent::toArray();
     }
 
     public function currencyToArray(): void
     {
         foreach ($this->getCurrencyColumns() as $column) {
-            if (isset($this->$column)) {
-                $this->$column = (float)$this->$column * static::getCurrencyAmount();
+            if (isset($this->attributes[$column])) {
+                $this->attributes[$column] = (float)$this->attributes[$column] * CurrencyHelper::getAmount();
             }
         }
-    }
-
-    public static function getCurrencyAmount(): float
-    {
-        return CurrencyHelper::getAmount();
     }
 }
